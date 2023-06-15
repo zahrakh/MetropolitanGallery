@@ -1,4 +1,4 @@
-package com.zahra.data.remotedata
+package com.zahra.data.remotedata.api
 
 import com.zahra.data.remotedata.dto.CollectionResponseDto
 import com.zahra.data.remotedata.dto.ObjectsDetailsDto
