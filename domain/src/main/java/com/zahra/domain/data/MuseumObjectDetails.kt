@@ -1,7 +1,7 @@
 package com.zahra.domain.data
 
 
-data class ObjectsDetailsDto(
+data class MuseumObjectDetails(
     val objectID: Int? = null,
     val isHighlight: Boolean? = null,
     val accessionNumber: String? = null,
@@ -9,8 +9,8 @@ data class ObjectsDetailsDto(
     val isPublicDomain: Boolean? = null,
     val primaryImage: String? = null,
     val primaryImageSmall: String? = null,
-    val additionalImages: ArrayList<String>? = null,
-    val constituents: ArrayList<ConstituentsDto>? = null,
+    val additionalImages: List<String>? = null,
+    val constituents: List<Constituents>? = null,
     val department: String? = null,
     val objectName: String? = null,
     val title: String? = null,
@@ -36,7 +36,7 @@ data class ObjectsDetailsDto(
     val objectEndDate: Int? = null,
     val medium: String? = null,
     val dimensions: String? = null,
-    val measurements: ArrayList<MeasurementsDto>? = null,
+    val measurements: List<Measurements>? = null,
     val creditLine: String? = null,
     val geographyType: String? = null,
     val city: String? = null,
@@ -55,13 +55,13 @@ data class ObjectsDetailsDto(
     val metadataDate: String? = null,
     val repository: String? = null,
     val objectURL: String? = null,
-    val tags: ArrayList<TagsDto>? = null,
+    val tags: List<Tags>? = null,
     val objectWikidataURL: String? = null,
     val isTimelineWork: Boolean? = null,
     val GalleryNumber: String? = null
 )
 
-data class ConstituentsDto(
+data class Constituents(
     val constituentID: Int? = null,
     val role: String? = null,
     val name: String? = null,
@@ -70,18 +70,18 @@ data class ConstituentsDto(
     val gender: String? = null
 )
 
-data class ElementMeasurementsDto(
+data class ElementMeasurements(
     val Height: Double? = null,
     val Width: Int? = null
 )
 
-data class MeasurementsDto(
+data class Measurements(
     val elementName: String? = null,
     val elementDescription: String? = null,
-    val elementMeasurements: ElementMeasurementsDto? = null
+    val elementMeasurements: ElementMeasurements? = null
 )
 
-data class TagsDto(
+data class Tags(
     val term: String? = null,
     val AATURL: String? = null,
     val WikidataURL: String? = null
