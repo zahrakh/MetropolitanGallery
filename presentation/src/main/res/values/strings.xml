@@ -1,3 +1,8 @@
 <resources>
     <string name="title_activity_main">MainActivity</string>
+    <string name="desc_logo">Application Logo</string>
+    <string name="retry">Retry</string>
+    <string name="confirm">Confirm</string>
+    <string name="icon_image">Icon</string>
+    <string name="input_view_icon">Icon</string>
 </resources>
