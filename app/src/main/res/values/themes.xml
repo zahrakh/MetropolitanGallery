@@ -2,10 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.MetropolitanGallery" parent="android:Theme.Material.Light.NoActionBar">
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">#292929</item>
+        <item name="android:statusBarColor">@color/gray_dark</item>
         <!-- Customize your theme here. -->
     </style>
 
-    <!--    todo-> add status bar color in color file-->
 
 </resources>
