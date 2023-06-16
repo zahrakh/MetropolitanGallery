@@ -2,7 +2,7 @@ package com.zahra.data.remotedata.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class CollectionResponseDto(
+data class DepartmentResponseDto(
     @SerializedName("departments") val departments: ArrayList<DepartmentDto>? = null
 )
 

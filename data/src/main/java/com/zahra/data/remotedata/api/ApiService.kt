@@ -1,6 +1,6 @@
 package com.zahra.data.remotedata.api
 
-import com.zahra.data.remotedata.dto.CollectionResponseDto
+import com.zahra.data.remotedata.dto.DepartmentResponseDto
 import com.zahra.data.remotedata.dto.ObjectsDetailsDto
 import com.zahra.data.remotedata.dto.ObjectsResponseDto
 import retrofit2.http.GET
@@ -13,7 +13,7 @@ interface ApiService {
     }
 
     @GET("public/collection/v1/departments")
-    suspend fun getCollections(): CollectionResponseDto
+    suspend fun getCollections(): DepartmentResponseDto
 
     @GET("public/collection/v1/objects?departmentId={id}")
     suspend fun getObjectsByCollectionId(

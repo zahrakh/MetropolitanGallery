@@ -11,7 +11,7 @@ data class ObjectsDetailsDto(
     @SerializedName("primaryImage"          ) val primaryImage          : String?                 = null,
     @SerializedName("primaryImageSmall"     ) val primaryImageSmall     : String?                 = null,
     @SerializedName("additionalImages"      ) val additionalImages      : ArrayList<String>?      = null,
-    @SerializedName("constituents"          ) val constituents          : ArrayList<Constituents>?= null,
+    @SerializedName("constituents"          ) val constituents          : ArrayList<ConstituentsDto>?= null,
     @SerializedName("department"            ) val department            : String?                 = null,
     @SerializedName("objectName"            ) val objectName            : String?                 = null,
     @SerializedName("title"                 ) val title                 : String?                 = null,
@@ -37,7 +37,7 @@ data class ObjectsDetailsDto(
     @SerializedName("objectEndDate"         ) val objectEndDate         : Int?                    = null,
     @SerializedName("medium"                ) val medium                : String?                 = null,
     @SerializedName("dimensions"            ) val dimensions            : String?                 = null,
-    @SerializedName("measurements"          ) val measurements          : ArrayList<Measurements>?= null,
+    @SerializedName("measurements"          ) val measurements          : ArrayList<MeasurementsDto>?= null,
     @SerializedName("creditLine"            ) val creditLine            : String?                 = null,
     @SerializedName("geographyType"         ) val geographyType         : String?                 = null,
     @SerializedName("city"                  ) val city                  : String?                 = null,
@@ -56,13 +56,13 @@ data class ObjectsDetailsDto(
     @SerializedName("metadataDate"          ) val metadataDate          : String?                 = null,
     @SerializedName("repository"            ) val repository            : String?                 = null,
     @SerializedName("objectURL"             ) val objectURL             : String?                 = null,
-    @SerializedName("tags"                  ) val tags                  : ArrayList<Tags>?        = null,
+    @SerializedName("tags"                  ) val tags                  : ArrayList<TagsDto>?        = null,
     @SerializedName("objectWikidata_URL"    ) val objectWikidataURL     : String?                 = null,
     @SerializedName("isTimelineWork"        ) val isTimelineWork        : Boolean?                = null,
     @SerializedName("GalleryNumber"         ) val GalleryNumber         : String?                 = null
 )
 
-data class Constituents (
+data class ConstituentsDto (
     @SerializedName("constituentID"           ) val constituentID          : Int?    = null,
     @SerializedName("role"                    ) val role                   : String? = null,
     @SerializedName("name"                    ) val name                   : String? = null,
@@ -71,18 +71,18 @@ data class Constituents (
     @SerializedName("gender"                  ) val gender                 : String? = null
 )
 
-data class ElementMeasurements (
+data class ElementMeasurementsDto (
     @SerializedName("Height" ) val Height : Double? = null,
     @SerializedName("Width"  ) val Width  : Int?    = null
 )
 
-data class Measurements (
-    @SerializedName("elementName"         ) val elementName         : String?              = null,
-    @SerializedName("elementDescription"  ) val elementDescription  : String?              = null,
-    @SerializedName("elementMeasurements" ) val elementMeasurements : ElementMeasurements? = null
+data class MeasurementsDto (
+    @SerializedName("elementName"         ) val elementName         : String?                 = null,
+    @SerializedName("elementDescription"  ) val elementDescription  : String?                 = null,
+    @SerializedName("elementMeasurements" ) val elementMeasurements : ElementMeasurementsDto? = null
 )
 
-data class Tags (
+data class TagsDto (
     @SerializedName("term"         ) val term        : String? = null,
     @SerializedName("AAT_URL"      ) val AATURL      : String? = null,
     @SerializedName("Wikidata_URL" ) val WikidataURL : String? = null
