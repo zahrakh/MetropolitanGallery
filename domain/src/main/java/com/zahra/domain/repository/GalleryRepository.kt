@@ -9,5 +9,5 @@ interface GalleryRepository {
     suspend fun getDepartmentList(): Either<Departments?, String>
     suspend fun getObjectsById(departmentId: Int): Either<ObjectsIds?, String>
     suspend fun getObjectsByName(objectName: String?): Either<ObjectsIds?, String>
-    suspend fun getObjectDetailsById(objectID: String?): Either<MuseumObjectDetails?, String>
+    suspend fun getObjectDetailsById(objectID: Int?): Either<MuseumObjectDetails?, String>
 }

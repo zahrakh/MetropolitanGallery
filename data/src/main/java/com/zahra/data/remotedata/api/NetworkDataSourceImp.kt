@@ -52,7 +52,7 @@ class NetworkDataSourceImp constructor(
         }
     }
 
-    override suspend fun getObjectDetailsById(objectID: String?): Either<ObjectsDetailsDto?, String> {
+    override suspend fun getObjectDetailsById(objectID: Int?): Either<ObjectsDetailsDto?, String> {
         return try {
             val resultDto = service.getObjectDetailsById(objectID)
             Either.Success(resultDto)

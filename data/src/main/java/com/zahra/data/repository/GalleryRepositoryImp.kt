@@ -50,7 +50,7 @@ class GalleryRepositoryImp @Inject constructor(
         }
     }
 
-    override suspend fun getObjectDetailsById(objectID: String?): Either<MuseumObjectDetails?, String> {
+    override suspend fun getObjectDetailsById(objectID: Int?): Either<MuseumObjectDetails?, String> {
         return when (val result = networkDataSource.getObjectDetailsById(objectID)) {
             is Either.Success -> {
                 Either.Success(result.data?.toObjectDetails())

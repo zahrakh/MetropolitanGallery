@@ -9,5 +9,5 @@ interface NetworkDataSource{
     suspend fun getDepartments(): Either<DepartmentsDto?, String>
     suspend fun getObjectsById(departmentId: Int): Either<ObjectsDto?, String>
     suspend fun getObjectsByName(objectName: String?): Either<ObjectsDto?, String>
-    suspend fun getObjectDetailsById(objectID: String?): Either<ObjectsDetailsDto?, String>
+    suspend fun getObjectDetailsById(objectID: Int?): Either<ObjectsDetailsDto?, String>
 }
