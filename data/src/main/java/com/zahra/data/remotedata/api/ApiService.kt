@@ -1,8 +1,8 @@
 package com.zahra.data.remotedata.api
 
-import com.zahra.data.remotedata.dto.DepartmentResponseDto
+import com.zahra.data.remotedata.dto.DepartmentsDto
 import com.zahra.data.remotedata.dto.ObjectsDetailsDto
-import com.zahra.data.remotedata.dto.ObjectsResponseDto
+import com.zahra.data.remotedata.dto.ObjectsDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -13,17 +13,17 @@ interface ApiService {
     }
 
     @GET("public/collection/v1/departments")
-    suspend fun getCollections(): DepartmentResponseDto
+    suspend fun getDepartments(): DepartmentsDto
 
     @GET("public/collection/v1/objects?departmentId={id}")
-    suspend fun getObjectsByCollectionId(
+    suspend fun getObjectsById(
         @Path("id") departmentId: Int,
-    ): ObjectsResponseDto
+    ): ObjectsDto
 
     @GET("public/collection/v1/search?q={parameter}")
-    suspend fun getObjectsBySearch(
+    suspend fun getObjectsByName(
         @Path("parameter") searchParam: String?,
-    ): ObjectsResponseDto
+    ): ObjectsDto
 
     @GET("public/collection/v1/objects/{id}")
     suspend fun getObjectDetailsById(

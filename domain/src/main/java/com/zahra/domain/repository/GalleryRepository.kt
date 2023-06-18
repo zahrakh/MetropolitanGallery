@@ -7,7 +7,7 @@ import com.zahra.domain.data.common.Either
 
 interface GalleryRepository {
     suspend fun getDepartmentList(): Either<Departments?, String>
-    suspend fun getObjectsByCollectionId(departmentId: Int): Either<ObjectsIds, String>
-    suspend fun getObjectsBySearch(objectName: String?): Either<ObjectsIds, String>
+    suspend fun getObjectsById(departmentId: Int): Either<ObjectsIds, String>
+    suspend fun getObjectsByName(objectName: String?): Either<ObjectsIds, String>
     suspend fun getObjectDetailsById(objectID: String?): Either<MuseumObjectDetails, String>
 }

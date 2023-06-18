@@ -15,11 +15,11 @@ class GalleryRepositoryImp @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override suspend fun getObjectsByCollectionId(departmentId: Int): Either<ObjectsIds, String> {
+    override suspend fun getObjectsById(departmentId: Int): Either<ObjectsIds, String> {
         TODO("Not yet implemented")
     }
 
-    override suspend fun getObjectsBySearch(objectName: String?): Either<ObjectsIds, String> {
+    override suspend fun getObjectsByName(objectName: String?): Either<ObjectsIds, String> {
         TODO("Not yet implemented")
     }
 

@@ -4,7 +4,7 @@ import com.zahra.domain.data.Department
 import com.zahra.domain.data.Departments
 import com.zahra.domain.data.ObjectsIds
 
-internal fun ObjectsResponseDto.toObjectIds(): ObjectsIds = ObjectsIds(
+internal fun ObjectsDto.toObjectIds(): ObjectsIds = ObjectsIds(
     total = this.total,
     objectIDs = this.objectIDs
 )
@@ -14,7 +14,7 @@ internal fun DepartmentDto.toDepartment(): Department = Department(
     departmentName = this.displayName,
 )
 
-internal fun DepartmentResponseDto.toDepartmentList(): Departments = Departments(
+internal fun DepartmentsDto.toDepartmentList(): Departments = Departments(
     departments = this.departments?.map { it.toDepartment() }
 )
 
