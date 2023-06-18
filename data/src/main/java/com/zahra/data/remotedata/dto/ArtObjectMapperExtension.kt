@@ -2,6 +2,7 @@ package com.zahra.data.remotedata.dto
 
 import com.zahra.domain.data.Department
 import com.zahra.domain.data.Departments
+import com.zahra.domain.data.MuseumObjectDetails
 import com.zahra.domain.data.ObjectsIds
 
 internal fun ObjectsDto.toObjectIds(): ObjectsIds = ObjectsIds(
@@ -18,4 +19,8 @@ internal fun DepartmentsDto.toDepartmentList(): Departments = Departments(
     departments = this.departments?.map { it.toDepartment() }
 )
 
+
+internal fun ObjectsDetailsDto.toObjectDetails(): MuseumObjectDetails = MuseumObjectDetails(
+    objectID = this.objectID
+)
 
