@@ -26,7 +26,7 @@ interface ApiService {
     ): ObjectsResponseDto
 
     @GET("public/collection/v1/objects/{id}")
-    suspend fun getObjectDetails(
+    suspend fun getObjectDetailsById(
         @Path("id") objectID: String?,
     ): ObjectsDetailsDto
 }
