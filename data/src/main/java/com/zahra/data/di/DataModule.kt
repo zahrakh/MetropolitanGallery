@@ -8,6 +8,8 @@ import com.zahra.data.StringProviderImpl
 import com.zahra.data.remotedata.api.ApiService
 import com.zahra.data.remotedata.api.NetworkDataSource
 import com.zahra.data.remotedata.api.NetworkDataSourceImp
+import com.zahra.data.repository.GalleryRepositoryImp
+import com.zahra.domain.repository.GalleryRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -69,6 +71,12 @@ class DataModule {
         stringProvider: StringProvider
     ): NetworkDataSource {
         return NetworkDataSourceImp(api, stringProvider)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGalleryRepository(networkDataSource: NetworkDataSource): GalleryRepository {
+        return GalleryRepositoryImp(networkDataSource)
     }
 
 
