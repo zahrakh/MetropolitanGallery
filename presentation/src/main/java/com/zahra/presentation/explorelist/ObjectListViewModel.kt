@@ -9,15 +9,9 @@ import com.zahra.domain.usecase.GetObjectsByIdUseCase
 import com.zahra.domain.usecase.GetObjectsByNameUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -44,6 +38,10 @@ class ObjectListViewModel @Inject constructor(
                 Log.i("LOGX", System.currentTimeMillis().toString() + ":   query:$query")
             }
         }
+    }
+
+    fun onRetry() {
+
     }
 
 }

@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.zahra.presentation.explorelist.screen.LazyListScreen
+import com.zahra.presentation.explorelist.ObjectListFragment
 import com.zahra.presentation.splash.SplashScreen
 
 
@@ -30,7 +30,7 @@ fun Navigation() {
         }
 
         composable(route = NavigationScreens.ListScreen.route) {
-            LazyListScreen()
+            ObjectListFragment()
         }
 
 
