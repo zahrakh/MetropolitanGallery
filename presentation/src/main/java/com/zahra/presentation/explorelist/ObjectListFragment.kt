@@ -16,7 +16,9 @@ import com.zahra.presentation.explorelist.screen.LazyListScreen
 import com.zahra.presentation.ui.component.ErrorView
 import com.zahra.presentation.ui.component.ProgressView
 import com.zahra.presentation.ui.component.SearchView
+import kotlinx.coroutines.FlowPreview
 
+@OptIn(FlowPreview::class)
 @Composable
 fun ObjectListFragment(
     viewModel: ObjectListViewModel = hiltViewModel(),
@@ -26,7 +28,10 @@ fun ObjectListFragment(
     val textState = remember { mutableStateOf(TextFieldValue("")) }
     Scaffold(
         topBar = {
-            SearchView(textState)
+            SearchView(
+                textState,
+                viewModel::onSearchTextChange
+            )
         },
     ) { padding ->
         Box(modifier = Modifier.padding(padding)) {

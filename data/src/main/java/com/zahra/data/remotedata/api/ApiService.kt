@@ -5,6 +5,7 @@ import com.zahra.data.remotedata.dto.ObjectsDetailsDto
 import com.zahra.data.remotedata.dto.ObjectsDto
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -15,14 +16,14 @@ interface ApiService {
     @GET("public/collection/v1/departments")
     suspend fun getDepartments(): DepartmentsDto
 
-    @GET("public/collection/v1/objects?departmentId={id}")
+    @GET("public/collection/v1/objects")
     suspend fun getObjectsById(
-        @Path("id") departmentId: Int,
+        @Query("departmentId") departmentId: Int,
     ): ObjectsDto
 
-    @GET("public/collection/v1/search?q={parameter}")
+    @GET("public/collection/v1/search")
     suspend fun getObjectsByName(
-        @Path("parameter") searchParam: String?,
+        @Query("q") searchParam: String?,
     ): ObjectsDto
 
     @GET("public/collection/v1/objects/{id}")

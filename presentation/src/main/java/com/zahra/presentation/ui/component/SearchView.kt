@@ -15,20 +15,21 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zahra.presentation.R
 
 @Composable
-fun SearchView(state: MutableState<TextFieldValue>) {
+fun SearchView(
+    state: MutableState<TextFieldValue>,
+    onTextChane: (String) -> Unit,
+
+    ) {
     TopAppBar(
         modifier = Modifier
             .fillMaxWidth()
@@ -37,7 +38,8 @@ fun SearchView(state: MutableState<TextFieldValue>) {
         TextField(
             value = state.value,
             onValueChange = { value ->
-                state.value = value
+                state.value = value //Todo check state.value
+                onTextChane(value.text)
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -83,12 +85,4 @@ fun SearchView(state: MutableState<TextFieldValue>) {
             )
         )
     }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun SearchViewPreview() {
-    val textState = remember { mutableStateOf(TextFieldValue("")) }
-    SearchView(textState)
 }
