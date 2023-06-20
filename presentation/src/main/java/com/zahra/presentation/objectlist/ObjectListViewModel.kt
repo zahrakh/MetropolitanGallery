@@ -1,11 +1,9 @@
-package com.zahra.presentation.explorelist
+package com.zahra.presentation.objectlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.zahra.domain.data.common.Either
 import com.zahra.domain.di.DispatcherProvider
-import com.zahra.domain.usecase.GetDepartmentListUseCase
-import com.zahra.domain.usecase.GetObjectsByIdUseCase
 import com.zahra.domain.usecase.GetObjectsByNameUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
@@ -19,9 +17,7 @@ import javax.inject.Inject
 @FlowPreview
 @HiltViewModel
 class ObjectListViewModel @Inject constructor(
-    private val getDepartmentsUseCase: GetDepartmentListUseCase,
     private val getObjectsByNameUseCase: GetObjectsByNameUseCase,
-    private val getObjectsByIdUseCase: GetObjectsByIdUseCase,
     private val dispatcherProvider: DispatcherProvider
 ) : ViewModel() {
 

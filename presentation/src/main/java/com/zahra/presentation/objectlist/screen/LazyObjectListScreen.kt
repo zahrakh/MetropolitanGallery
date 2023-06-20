@@ -1,6 +1,7 @@
-package com.zahra.presentation.explorelist.screen
+package com.zahra.presentation.objectlist.screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,18 +20,19 @@ import com.zahra.presentation.ui.component.EmptyView
 import com.zahra.presentation.ui.theme.MetropolitanGalleryTheme
 
 @Composable
-fun LazyListScreen(
+fun ObjectLazyListScreen(
     modifier: Modifier = Modifier,
     objectList: List<Int>? = null,
-    onClickToDetailScreen: (Int) -> Unit = {},
-) {
+    navigateToDetailsPage: (Int) -> Unit = {},
+ ) {
     Column(
         modifier = modifier.fillMaxWidth(),
     ) {
         if (!objectList.isNullOrEmpty()) {
-            ObjectList(list = objectList) { id ->
-                onClickToDetailScreen(id)
-            }
+            ObjectList(
+                list = objectList,
+                onItemClicked = navigateToDetailsPage
+            )
         } else {
             EmptyView(visible = objectList.isNullOrEmpty())
         }
@@ -42,7 +44,7 @@ fun LazyListScreen(
 fun ObjectList(
     list: List<Int> = arrayListOf(),
     onItemClicked: (item: Int) -> Unit = { },
-) {
+ ) {
     LazyColumn(
         contentPadding = PaddingValues(bottom = 16.dp)
     ) {
@@ -51,11 +53,13 @@ fun ObjectList(
                 text = item.toString(),
                 modifier = Modifier
                     .fillMaxWidth()
+                    .clickable {
+                        onItemClicked(item)
+                    }
                     .background(Color.White, shape = RoundedCornerShape(4.dp))
                     .padding(vertical = 8.dp),
                 textAlign = TextAlign.Center,
-
-                )
+            )
         }
     }
 }
@@ -65,7 +69,7 @@ fun ObjectList(
 @Composable
 fun HomeScreenPreview() {
     MetropolitanGalleryTheme() {
-        LazyListScreen()
+        ObjectLazyListScreen()
     }
 }
 

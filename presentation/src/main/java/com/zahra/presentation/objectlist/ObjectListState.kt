@@ -1,4 +1,4 @@
-package com.zahra.presentation.explorelist
+package com.zahra.presentation.objectlist
 
 
 data class ObjectListState(

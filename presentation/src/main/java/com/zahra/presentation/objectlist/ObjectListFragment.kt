@@ -1,4 +1,4 @@
-package com.zahra.presentation.explorelist
+package com.zahra.presentation.objectlist
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.zahra.presentation.explorelist.screen.LazyListScreen
+import com.zahra.presentation.objectlist.screen.ObjectLazyListScreen
 import com.zahra.presentation.ui.component.ErrorView
 import com.zahra.presentation.ui.component.ProgressView
 import com.zahra.presentation.ui.component.SearchView
@@ -22,7 +22,7 @@ import kotlinx.coroutines.FlowPreview
 @Composable
 fun ObjectListFragment(
     viewModel: ObjectListViewModel = hiltViewModel(),
-    onClickToDetailScreen: (Int) -> Unit = {},
+    navigateToDetailsPage: (Int) -> Unit,
 ) {
     val screenState by viewModel.state.collectAsStateWithLifecycle()
     val textState = remember { mutableStateOf(TextFieldValue("")) }
@@ -36,11 +36,10 @@ fun ObjectListFragment(
     ) { padding ->
         Box(modifier = Modifier.padding(padding)) {
             Column {
-
-                LazyListScreen(
+                ObjectLazyListScreen(
                     modifier = Modifier,
                     objectList = screenState.objectList,
-                    onClickToDetailScreen = onClickToDetailScreen,
+                    navigateToDetailsPage = navigateToDetailsPage,
                 )
                 ProgressView(
                     screenState.isLoading
@@ -50,7 +49,6 @@ fun ObjectListFragment(
                     ocClick = { viewModel.onRetry() },
                     visible = screenState.errorMessage != null,
                 )
-
             }
         }
     }
