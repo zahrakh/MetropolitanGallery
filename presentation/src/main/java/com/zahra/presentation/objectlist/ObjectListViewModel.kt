@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.zahra.domain.data.common.Either
 import com.zahra.domain.di.DispatcherProvider
 import com.zahra.domain.usecase.GetObjectsByNameUseCase
+import com.zahra.presentation.objectlist.screen.ListScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.Job
@@ -21,7 +22,7 @@ class ObjectListViewModel @Inject constructor(
     private val dispatcherProvider: DispatcherProvider
 ) : ViewModel() {
 
-    private val _state: MutableStateFlow<ObjectListState> = MutableStateFlow(ObjectListState())
+    private val _state: MutableStateFlow<ListScreenState> = MutableStateFlow(ListScreenState())
     val state = _state.asStateFlow()
 
     private val _searchText = MutableStateFlow("")
@@ -31,33 +32,37 @@ class ObjectListViewModel @Inject constructor(
 
     fun onSearchTextChange(text: String) {
         _searchText.value = text
+
         job?.cancel()
         job = viewModelScope.launch(dispatcherProvider.io()) {
-            _searchText.debounce(
-                1000
-            ).collect { query ->
+
+            _state.value = _state.value.copy(
+                isLoading = true
+            )
+
+            searchText.debounce(1000).collect { query ->
+
                 when (val result = getObjectsByNameUseCase.invoke(query)) {
                     is Either.Success -> {
+
                         _state.value = _state.value.copy(
+                            isLoading = false,
                             objectList = result.data?.objectIDs,
-                            isLoading = false
                         )
                     }
 
                     is Either.Error -> {
+
                         _state.value = _state.value.copy(
                             isLoading = false,
                             errorMessage = result.error,
-                            objectList = null
                         )
+
                     }
                 }
             }
         }
     }
 
-    fun onRetry() {
-
-    }
 
 }
