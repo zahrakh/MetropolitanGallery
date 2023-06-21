@@ -72,8 +72,8 @@ data class ConstituentsDto (
 )
 
 data class ElementMeasurementsDto (
-    @SerializedName("Height" ) val Height : Double? = null,
-    @SerializedName("Width"  ) val Width  : Int?    = null
+    @SerializedName("Height" ) val Height : String? = null,
+    @SerializedName("Width"  ) val Width  : String?    = null
 )
 
 data class MeasurementsDto (

@@ -21,7 +21,8 @@ coil = "2.4.0"
 google_service = "21.0.1"
 mockito = "4.0.0"
 google-truth = "1.1.3"
-compose-material="1.1.0"
+compose-material = "1.1.0"
+compose_constraintlayout = "1.0.1"
 [libraries]
 #Core
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -30,7 +31,7 @@ lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtim
 compose_nav = { group = "androidx.navigation", name = "navigation-compose", version.ref = "compose_nav" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
-material = { group = "androidx.compose.material", name = "material", version.ref="compose-material" }
+material = { group = "androidx.compose.material", name = "material", version.ref = "compose-material" }
 ui = { group = "androidx.compose.ui", name = "ui" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "compose_ui_version" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose_ui_version" }
@@ -44,6 +45,7 @@ permision = { group = "com.google.accompanist", name = "accompanist-permissions"
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil" }
 google-service-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "google_service" }
+compose_constraint_layout = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "compose_constraintlayout" }
 #Network
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit-version" }
 retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit-version" }

@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.zahra.domain.data.common.Either
 import com.zahra.domain.di.DispatcherProvider
 import com.zahra.domain.usecase.GetObjectDetailsByIdUseCase
-import com.zahra.presentation.objectdetails.screen.DetailsScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,8 +18,8 @@ class ObjectDetailsViewModel @Inject constructor(
     private val dispatcherProvider: DispatcherProvider
 ) : ViewModel() {
 
-    private val _state: MutableStateFlow<DetailsScreenState> =
-        MutableStateFlow(DetailsScreenState())
+    private val _state: MutableStateFlow<ObjectDetailsState> =
+        MutableStateFlow(ObjectDetailsState())
     val state = _state.asStateFlow()
 
     var job: Job? = null
@@ -30,14 +29,14 @@ class ObjectDetailsViewModel @Inject constructor(
         job = viewModelScope.launch(dispatcherProvider.io()) {
             _state.value = _state.value.copy(
                 isLoading = true,
-                objectDetails = null,
+                model = null,
                 errorMessage = null
             )
             when (val result = getObjectDetailsByIdUseCase.invoke(id)) {
                 is Either.Success -> {
                     _state.value = _state.value.copy(
                         isLoading = false,
-                        objectDetails = result.data,
+                        model = result.data,
                         errorMessage = null
                     )
                 }
@@ -45,7 +44,7 @@ class ObjectDetailsViewModel @Inject constructor(
                 is Either.Error -> {
                     _state.value = _state.value.copy(
                         isLoading = false,
-                        objectDetails = null,
+                        model = null,
                         errorMessage = result.error
                     )
                 }

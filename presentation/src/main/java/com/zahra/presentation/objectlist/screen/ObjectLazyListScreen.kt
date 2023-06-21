@@ -13,9 +13,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.zahra.presentation.ui.component.EmptyView
 import com.zahra.presentation.ui.theme.MetropolitanGalleryTheme
 
@@ -50,6 +52,8 @@ fun ObjectList(
     ) {
         items(list) { item ->
             Text(
+                fontSize = 16.sp,
+                fontFamily = FontFamily.SansSerif,
                 text = item.toString(),
                 modifier = Modifier
                     .fillMaxWidth()

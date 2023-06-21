@@ -71,8 +71,8 @@ data class Constituents(
 )
 
 data class ElementMeasurements(
-    val Height: Double? = null,
-    val Width: Int? = null
+    val Height: String? = null,
+    val Width: String? = null
 )
 
 data class Measurements(

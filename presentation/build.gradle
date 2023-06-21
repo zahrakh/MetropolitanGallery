@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.material)
     implementation(libs.dagger.hilt.compose)
+    implementation(libs.compose.constraint.layout)
     implementation(libs.dagger.hilt)
     kapt(libs.dagger.hilt.compiler)
 

@@ -1,7 +1,7 @@
-package com.zahra.presentation.objectlist.screen
+package com.zahra.presentation.objectlist
 
 
-data class ListScreenState(
+data class ObjectListState(
     val isLoading: Boolean = false,
     val errorMessage: String? = null,
     val objectList: List<Int>? = null

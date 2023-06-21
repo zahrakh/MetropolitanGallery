@@ -18,8 +18,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.zahra.presentation.R
 import com.zahra.presentation.ui.animation.FadeInScreen
 import com.zahra.presentation.ui.theme.LightGreen
@@ -49,7 +51,11 @@ fun ErrorView(
                     tint = LightGreen
                 )
                 Text(
-                    color = Color.Black, textAlign = TextAlign.Center, text = errorMessage
+                    color = Color.Black,
+                    textAlign = TextAlign.Center,
+                    text = errorMessage,
+                    fontSize = 16.sp,
+                    fontFamily = FontFamily.SansSerif,
                 )
                 Spacer(modifier = Modifier.height(18.dp))
             }

@@ -3,7 +3,10 @@
     <string name="retry">Retry</string>
     <string name="confirm">Confirm</string>
     <string name="icon_image">Icon</string>
-    <string name="page_title">metropolitan museum</string>
+    <string name="page_title">Object Details</string>
     <string name="input_view_icon">Icon</string>
+    <string name="image_poster">Image poster</string>
     <string name="no_objects_found">There is no item. Please search key word</string>
- </resources>
+    <string name="department_name">Department Name: %s</string>
+    <string name="object_name">Name: %s</string>
+</resources>

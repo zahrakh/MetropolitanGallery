@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.zahra.domain.data.common.Either
 import com.zahra.domain.di.DispatcherProvider
 import com.zahra.domain.usecase.GetObjectsByNameUseCase
-import com.zahra.presentation.objectlist.screen.ListScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.Job
@@ -22,7 +21,7 @@ class ObjectListViewModel @Inject constructor(
     private val dispatcherProvider: DispatcherProvider
 ) : ViewModel() {
 
-    private val _state: MutableStateFlow<ListScreenState> = MutableStateFlow(ListScreenState())
+    private val _state: MutableStateFlow<ObjectListState> = MutableStateFlow(ObjectListState())
     val state = _state.asStateFlow()
 
     private val _searchText = MutableStateFlow("")
