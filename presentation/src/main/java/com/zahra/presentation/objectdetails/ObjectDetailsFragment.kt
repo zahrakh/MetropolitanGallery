@@ -21,7 +21,11 @@ fun ObjectDetailsFragment(
     Box {
         LazyColumn(modifier = Modifier.fillMaxWidth()) {
             item {
-                ObjectHeaderScreen(screenState.model?.primaryImage, onNavigateUp)
+                ObjectHeaderScreen(
+                    screenState.model?.primaryImage,
+                    screenState.model?.objectName,
+                    onNavigateUp
+                )
             }
             item {
                 ObjectInfoScreen(model = screenState.model)

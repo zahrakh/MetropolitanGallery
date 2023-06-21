@@ -7,6 +7,6 @@
     <string name="input_view_icon">Icon</string>
     <string name="image_poster">Image poster</string>
     <string name="no_objects_found">There is no item. Please search key word</string>
-    <string name="department_name">Department Name: %s</string>
-    <string name="object_name">Name: %s</string>
+    <string name="department_name">Department Name:</string>
+    <string name="object_name">Name:</string>
 </resources>

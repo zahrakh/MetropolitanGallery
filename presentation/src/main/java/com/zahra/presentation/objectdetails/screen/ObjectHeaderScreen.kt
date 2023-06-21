@@ -1,18 +1,24 @@
 package com.zahra.presentation.objectdetails.screen
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.calculateStartPadding
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -23,32 +29,35 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.zahra.presentation.R
+import com.zahra.presentation.ui.component.CoilImageView
 
 @Composable
 fun ObjectHeaderScreen(
-    imageUrl: String? = null,
+    objectImageUrl: String? = null,
+    objectName: String? = null,
     onNavigateUp: () -> Unit = {}
 ) {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp)
+            .height(250.dp)
     ) {
         val (image, info, topBar) = createRefs()
 
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(imageUrl)
+                .data(objectImageUrl)
                 .placeholder(R.drawable.placeholder)
                 .error(R.drawable.placeholder)
                 .crossfade(true)
@@ -56,7 +65,7 @@ fun ObjectHeaderScreen(
             contentDescription = stringResource(id = R.string.image_poster),
             modifier = Modifier
                 .fillMaxWidth()
-                .height(246.dp)
+                .height(300.dp)
                 .constrainAs(image) {
                     linkTo(
                         start = parent.start,
@@ -70,7 +79,6 @@ fun ObjectHeaderScreen(
                 },
             contentScale = ContentScale.Crop
         )
-
         DetailsAppBar(
             modifier = Modifier
                 .fillMaxWidth()
@@ -81,7 +89,7 @@ fun ObjectHeaderScreen(
                     width = Dimension.fillToConstraints
                 }
         ) { onNavigateUp() }
-
+        val contentPadding = PaddingValues(16.dp)
         Surface(
             shape = RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp),
             modifier = Modifier
@@ -89,18 +97,41 @@ fun ObjectHeaderScreen(
                     linkTo(start = parent.start, end = parent.end)
                     bottom.linkTo(parent.bottom)
                     width = Dimension.fillToConstraints
-                    height = Dimension.value(35.dp)
+                    height = Dimension.value(80.dp)
                 }
         ) {
-            Image(
-                imageVector = Icons.Filled.Close,
-                contentDescription = "arrow_down",
-                colorFilter = ColorFilter.tint(Color.White)
-            )
-            Spacer(
-                modifier = Modifier
-                    .height(40.dp)
-            )
+            Row {
+                Column(
+                    modifier = Modifier.padding(
+                        top = contentPadding.calculateTopPadding(),
+                        start = contentPadding.calculateStartPadding(LayoutDirection.Rtl)
+                    )
+                ) {
+                    CoilImageView(
+                        url = objectImageUrl ?: ""
+                    )
+                }
+                Column(
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxWidth()
+                        .fillMaxHeight(),
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Text(
+                            text = stringResource(id = R.string.object_name),
+                            color = Color.LightGray,
+                            fontSize = 16.sp,
+                        )
+                        Text(
+                            text = objectName ?: "",
+                            color = Color.Black,
+                            fontSize = 16.sp,
+                        )
+                    }
+                }
+            }
         }
     }
 }
