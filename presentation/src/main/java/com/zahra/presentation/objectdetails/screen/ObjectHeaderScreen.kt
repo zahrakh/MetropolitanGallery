@@ -58,8 +58,8 @@ fun ObjectHeaderScreen(
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
                 .data(objectImageUrl)
-                .placeholder(R.drawable.item_placeholder)
-                .error(R.drawable.item_placeholder)
+                .placeholder(R.drawable.poster_placeholder)
+                .error(R.drawable.poster_placeholder)
                 .crossfade(true)
                 .build(),
             contentDescription = stringResource(id = R.string.image_poster),

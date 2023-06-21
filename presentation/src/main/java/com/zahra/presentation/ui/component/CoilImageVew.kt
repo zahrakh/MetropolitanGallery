@@ -21,8 +21,8 @@ fun CoilImageView(
     url: String,
 ) {
     val imageLoader = ImageLoader.Builder(LocalContext.current)
-        .placeholder(R.drawable.poster_placeholder)
-        .error(R.drawable.poster_placeholder)
+        .placeholder(R.drawable.item_placeholder)
+        .error(R.drawable.item_placeholder)
         .build()
 
     Image(
