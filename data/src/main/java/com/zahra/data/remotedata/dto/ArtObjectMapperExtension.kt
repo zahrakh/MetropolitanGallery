@@ -36,6 +36,7 @@ internal fun ObjectsDetailsDto.toObjectDetails(): MuseumObjectDetails = MuseumOb
     state = this.state,
     county = this.county,
     country = this.country,
+    repository=this.repository,
     objectURL = this.objectURL,
     tags = this.tags?.map { it.toTags() },
     GalleryNumber = this.GalleryNumber,
