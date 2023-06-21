@@ -28,7 +28,7 @@ class ObjectListViewModel @Inject constructor(
     private val _searchText = MutableStateFlow("")
     private val searchText = _searchText.asStateFlow()
 
-    var job: Job? = null
+    private var job: Job? = null
 
     fun onSearchTextChange(text: String) {
         _searchText.value = text
@@ -36,15 +36,12 @@ class ObjectListViewModel @Inject constructor(
         job?.cancel()
         job = viewModelScope.launch(dispatcherProvider.io()) {
 
-            _state.value = _state.value.copy(
-                isLoading = true
-            )
+            _state.value = _state.value.copy(isLoading = true)
 
             searchText.debounce(1000).collect { query ->
 
                 when (val result = getObjectsByNameUseCase.invoke(query)) {
                     is Either.Success -> {
-
                         _state.value = _state.value.copy(
                             isLoading = false,
                             objectList = result.data?.objectIDs,
@@ -52,7 +49,6 @@ class ObjectListViewModel @Inject constructor(
                     }
 
                     is Either.Error -> {
-
                         _state.value = _state.value.copy(
                             isLoading = false,
                             errorMessage = result.error,
@@ -62,6 +58,12 @@ class ObjectListViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun onRetry() {
+        TODO(
+            //Create retry method
+        )
     }
 
 

@@ -33,7 +33,7 @@ fun SearchView(
     TopAppBar(
         modifier = Modifier
             .fillMaxWidth()
-            .height(84.dp),
+            .height(64.dp),
     ) {
         TextField(
             value = state.value,
@@ -41,17 +41,18 @@ fun SearchView(
                 state.value = value //Todo check state.value
                 onTextChane(value.text)
             },
+
             modifier = Modifier
                 .fillMaxWidth()
-                .height(64.dp)
-                .padding(4.dp),
-            textStyle = TextStyle(color = Color.White, fontSize = 18.sp),
+                .padding(4.dp)
+                .height(54.dp),
+            textStyle = TextStyle(color = Color.White, fontSize = 14.sp),
             leadingIcon = {
                 Icon(
                     Icons.Default.Search,
                     contentDescription = "",
                     modifier = Modifier
-                        .padding(15.dp)
+                        .padding(8.dp)
                         .size(24.dp)
                 )
             },

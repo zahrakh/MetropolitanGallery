@@ -49,7 +49,6 @@ class ObjectDetailsViewModel @Inject constructor(
                         errorMessage = result.error
                     )
                 }
-
             }
         }
     }
