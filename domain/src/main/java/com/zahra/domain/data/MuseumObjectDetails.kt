@@ -32,8 +32,8 @@ data class MuseumObjectDetails(
     val artistWikidataURL: String? = null,
     val artistULANURL: String? = null,
     val objectDate: String? = null,
-    val objectBeginDate: Int? = null,
-    val objectEndDate: Int? = null,
+    val objectBeginDate: String? = null,
+    val objectEndDate: String? = null,
     val medium: String? = null,
     val dimensions: String? = null,
     val measurements: List<Measurements>? = null,
@@ -62,7 +62,7 @@ data class MuseumObjectDetails(
 )
 
 data class Constituents(
-    val constituentID: Int? = null,
+    val constituentID: String? = null,
     val role: String? = null,
     val name: String? = null,
     val constituentULANURL: String? = null,

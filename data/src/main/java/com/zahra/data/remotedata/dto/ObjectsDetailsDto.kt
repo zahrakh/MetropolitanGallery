@@ -33,8 +33,8 @@ data class ObjectsDetailsDto(
     @SerializedName("artistWikidata_URL"    ) val artistWikidataURL     : String?                 = null,
     @SerializedName("artistULAN_URL"        ) val artistULANURL         : String?                 = null,
     @SerializedName("objectDate"            ) val objectDate            : String?                 = null,
-    @SerializedName("objectBeginDate"       ) val objectBeginDate       : Int?                    = null,
-    @SerializedName("objectEndDate"         ) val objectEndDate         : Int?                    = null,
+    @SerializedName("objectBeginDate"       ) val objectBeginDate       : String?                    = null,
+    @SerializedName("objectEndDate"         ) val objectEndDate         : String?                    = null,
     @SerializedName("medium"                ) val medium                : String?                 = null,
     @SerializedName("dimensions"            ) val dimensions            : String?                 = null,
     @SerializedName("measurements"          ) val measurements          : List<MeasurementsDto>?= null,
@@ -63,7 +63,7 @@ data class ObjectsDetailsDto(
 )
 
 data class ConstituentsDto (
-    @SerializedName("constituentID"           ) val constituentID          : Int?    = null,
+    @SerializedName("constituentID"           ) val constituentID          : String?    = null,
     @SerializedName("role"                    ) val role                   : String? = null,
     @SerializedName("name"                    ) val name                   : String? = null,
     @SerializedName("constituentULAN_URL"     ) val constituentULANURL     : String? = null,
