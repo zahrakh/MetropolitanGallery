@@ -6,12 +6,14 @@
     <string name="page_title">Object Details</string>
     <string name="input_view_icon">Icon</string>
     <string name="image_poster">Image poster</string>
-    <string name="no_objects_found">There is no item. Please search key word</string>
+    <string name="empty_message">There is no item. Please search key word</string>
+    <string name="error_message">something went wrong please try again</string>
     <string name="department_name">Department Name:</string>
     <string name="object_name">Name:</string>
     <string name="object_country">Origin Country:</string>
     <string name="accession_year">Accession Year:</string>
     <string name="more_Image">More Image:</string>
     <string name="search_hint_text">Enter text like: flower </string>
+    <string name="back">Back</string>
 </resources>
 

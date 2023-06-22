@@ -13,6 +13,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.zahra.presentation.objectdetails.screen.ObjectHeaderScreen
 import com.zahra.presentation.objectdetails.screen.ObjectInfoScreen
+import com.zahra.presentation.ui.component.ErrorDialogScreen
 import com.zahra.presentation.ui.component.ProgressView
 
 @Composable
@@ -38,6 +39,14 @@ fun ObjectDetailsFragment(
         }
 
         ProgressView(screenState.isLoading)
+
+        if (!screenState.errorMessage.isNullOrEmpty())  ErrorDialogScreen(
+            onBackClick = onNavigateUp,
+            onRetryClick = { viewModel.retry(objectId) },
+            onDismissDialog = {
+                viewModel.hideErrorDialog()
+            }
+        )
 
     }
 }

@@ -1,6 +1,5 @@
 package com.zahra.presentation.objectdetails
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.zahra.domain.data.common.Either
@@ -30,8 +29,6 @@ class ObjectDetailsViewModel @Inject constructor(
         job = viewModelScope.launch(dispatcherProvider.io()) {
             _state.value = _state.value.copy(
                 isLoading = true,
-                model = null,
-                errorMessage = null
             )
             when (val result = getObjectDetailsByIdUseCase.invoke(id)) {
                 is Either.Success -> {
@@ -43,8 +40,6 @@ class ObjectDetailsViewModel @Inject constructor(
                 }
 
                 is Either.Error -> {
-                    Log.i("ErrorLog 2",result.error)
-
                     _state.value = _state.value.copy(
                         isLoading = false,
                         model = null,
@@ -54,5 +49,14 @@ class ObjectDetailsViewModel @Inject constructor(
             }
         }
     }
+
+    fun hideErrorDialog() {
+        _state.value = _state.value.copy(errorMessage = null)
+    }
+
+    fun retry(id: Int) {
+        getObjectDetails(id)
+    }
+
 
 }

@@ -28,6 +28,7 @@ fun ObjectListFragment(
 ) {
     val screenState by viewModel.state.collectAsStateWithLifecycle()
     val textState = remember { mutableStateOf(TextFieldValue("")) }
+
     Scaffold(
         topBar = {
             SearchView(
@@ -47,12 +48,13 @@ fun ObjectListFragment(
                         navigateToDetailsPage = navigateToDetailsPage,
                     )
                 }
-
                 ErrorView(
-                    errorMessage = screenState.errorMessage ?: stringResource(
-                        id = R.string.no_objects_found
+                    errorMessage = if (screenState.isError) stringResource(
+                        id = R.string.error_message
+                    ) else stringResource(
+                        id = R.string.empty_message
                     ),
-                    visible = (screenState.errorMessage != null) || screenState.objectList.isNullOrEmpty() && !screenState.isLoading,
+                    visible = (screenState.isError) || screenState.objectList.isNullOrEmpty() && !screenState.isLoading,
                 )
 
                 ProgressView(

@@ -3,6 +3,6 @@ package com.zahra.presentation.objectlist
 
 data class ObjectListState(
     val isLoading: Boolean = false,
-    val errorMessage: String? = null,
+    val isError: Boolean=false,
     val objectList: List<Int>? = null
 )
