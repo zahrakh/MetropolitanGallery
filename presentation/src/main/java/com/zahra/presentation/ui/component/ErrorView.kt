@@ -8,24 +8,16 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.Icon
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.zahra.presentation.R
 import com.zahra.presentation.ui.animation.FadeInScreen
-import com.zahra.presentation.ui.theme.LightGreen
 
 @Composable
 fun ErrorView(
@@ -42,17 +34,8 @@ fun ErrorView(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Row {
-                Icon(
-                    imageVector = Icons.Default.Info,
-                    modifier = Modifier
-                        .width(8.dp)
-                        .height(8.dp)
-                        .padding(4.dp),
-                    contentDescription = stringResource(id = R.string.icon_image),
-                    tint = LightGreen
-                )
                 Text(
-                    color = Color.Black,
+                    color = Color.Gray,
                     textAlign = TextAlign.Center,
                     text = errorMessage,
                     fontSize = 16.sp,

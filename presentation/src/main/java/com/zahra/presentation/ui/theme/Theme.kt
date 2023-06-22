@@ -13,15 +13,15 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColors(
-    primary = Color.Black,
-    secondary = Color.Gray,
-    background = Color.DarkGray,
+    primary = Color(0xFF221813),
+    secondary = Color(0xFF000000),
+    background = Color(0xFFFFFFFF)
 )
 
 private val LightColorScheme = lightColors(
-    primary = Color.White,
-    secondary = Color.Gray,
-    background = Color.LightGray
+    primary = Color(0xFF3C2A21),
+    secondary = Color(0xFF1A120B),
+    background = Color(0xFFFFFFFF)
 )
 
 @Composable

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.TopAppBar
@@ -17,7 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
@@ -35,6 +36,12 @@ fun SearchView(
             .height(64.dp),
     ) {
         TextField(
+            placeholder = {
+                Text(
+                    text = stringResource(id = R.string.search_hint_text),
+                    color = Color.LightGray
+                )
+            },
             value = state.value,
             onValueChange = { value ->
                 state.value = value
@@ -45,7 +52,7 @@ fun SearchView(
                 .fillMaxWidth()
                 .padding(4.dp)
                 .height(54.dp),
-            textStyle = TextStyle(color = Color.White, fontSize = 14.sp),
+            textStyle = TextStyle(color = Color.DarkGray, fontSize = 14.sp),
             leadingIcon = {
                 Icon(
                     Icons.Default.Search,
@@ -65,7 +72,7 @@ fun SearchView(
                             Icons.Default.Close,
                             contentDescription = "",
                             modifier = Modifier
-                                .padding(15.dp)
+                                .padding(8.dp)
                                 .size(24.dp)
                         )
                     }
@@ -74,11 +81,11 @@ fun SearchView(
             singleLine = true,
             shape = RoundedCornerShape(8.dp),
             colors = TextFieldDefaults.textFieldColors(
-                textColor = Color.White,
-                cursorColor = Color.White,
-                leadingIconColor = Color.White,
-                trailingIconColor = Color.White,
-                backgroundColor = colorResource(id = R.color.card_background),
+                textColor = Color.DarkGray,
+                cursorColor = Color.Gray,
+                leadingIconColor = Color.DarkGray,
+                trailingIconColor = Color.DarkGray,
+                backgroundColor = Color.White,
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
                 disabledIndicatorColor = Color.Transparent

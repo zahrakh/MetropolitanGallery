@@ -1,5 +1,5 @@
 <resources>
-     <string name="desc_logo">Application Logo</string>
+    <string name="desc_logo">Application Logo</string>
     <string name="retry">Retry</string>
     <string name="confirm">Confirm</string>
     <string name="icon_image">Icon</string>
@@ -12,5 +12,6 @@
     <string name="object_country">Origin Country:</string>
     <string name="accession_year">Accession Year:</string>
     <string name="more_Image">More Image:</string>
+    <string name="search_hint_text">Enter text like: flower </string>
 </resources>
 

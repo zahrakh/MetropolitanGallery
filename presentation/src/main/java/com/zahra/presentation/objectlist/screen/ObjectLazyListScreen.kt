@@ -52,6 +52,11 @@ fun ObjectList(
         items(list) { item ->
             Card(
                 modifier = Modifier
+                    .padding(
+                        top = 8.dp,
+                        start = 4.dp,
+                        end = 4.dp,
+                    )
                     .border(1.dp, color = colorResource(id = R.color.card_background))
                     .clickable {
                         onItemClicked(item)
@@ -59,7 +64,7 @@ fun ObjectList(
             ) {
                 Text(
                     text = item.toString(),
-                    color = Color.Black,
+                    color = Color.DarkGray,
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                         .padding(16.dp)
