@@ -13,8 +13,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -22,7 +20,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -32,6 +29,7 @@ import coil.request.ImageRequest
 import coil.size.Scale
 import com.zahra.domain.data.MuseumObjectDetails
 import com.zahra.presentation.R
+import com.zahra.presentation.ui.theme.BorderColor
 
 
 @Composable
@@ -100,9 +98,7 @@ fun ObjectInfoScreen(
             Text(
                 modifier = modifier,
                 text = stringResource(id = R.string.more_Image),
-                color = colorResource(
-                    id = R.color.card_background
-                ),
+                color = Color.LightGray,
                 fontSize = 14.sp,
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -124,9 +120,7 @@ fun ObjectInfoScreen(
                             .clip(RectangleShape)
                             .border(
                                 1.dp,
-                                color = colorResource(
-                                    id = R.color.card_background
-                                ),
+                                color = BorderColor,
                                 RectangleShape
                             )
                             .width(100.dp)

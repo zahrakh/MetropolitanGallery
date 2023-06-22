@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,6 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zahra.presentation.ui.animation.FadeInScreen
+import com.zahra.presentation.ui.theme.LightSecondary
 
 @Composable
 fun ErrorView(
@@ -35,11 +38,17 @@ fun ErrorView(
         ) {
             Row {
                 Text(
-                    color = Color.Gray,
+                    color = Color.White,
                     textAlign = TextAlign.Center,
                     text = errorMessage,
                     fontSize = 16.sp,
                     fontFamily = FontFamily.SansSerif,
+                    modifier = Modifier
+                        .background(
+                            shape = RoundedCornerShape(8.dp),
+                            color = LightSecondary
+                        )
+                        .padding(16.dp)
                 )
                 Spacer(modifier = Modifier.height(18.dp))
             }
