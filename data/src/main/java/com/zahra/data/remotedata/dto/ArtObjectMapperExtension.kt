@@ -17,6 +17,7 @@ internal fun ObjectsDetailsDto.toObjectDetails(): MuseumObjectDetails = MuseumOb
     additionalImages = this.additionalImages,
     department = this.department,
     objectName = this.objectName,
+    accessionYear = this.accessionYear,
     title = this.title,
     culture = this.culture,
     artistDisplayName = this.artistDisplayName,

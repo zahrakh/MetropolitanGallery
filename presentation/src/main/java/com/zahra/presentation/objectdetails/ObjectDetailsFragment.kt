@@ -26,8 +26,6 @@ fun ObjectDetailsFragment(
             .fillMaxWidth()
             .background(color = Color.White)
     ) {
-        ProgressView(screenState.isLoading)
-
         LazyColumn {
             item {
                 ObjectHeaderScreen(
@@ -38,5 +36,8 @@ fun ObjectDetailsFragment(
                 ObjectInfoScreen(model = screenState.model)
             }
         }
+
+        ProgressView(screenState.isLoading)
+
     }
 }

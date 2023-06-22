@@ -9,9 +9,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.zahra.presentation.R
 import com.zahra.presentation.objectlist.screen.ObjectLazyListScreen
 import com.zahra.presentation.ui.component.ErrorView
 import com.zahra.presentation.ui.component.ProgressView
@@ -29,26 +31,34 @@ fun ObjectListFragment(
     Scaffold(
         topBar = {
             SearchView(
-                textState,
-                viewModel::onSearchTextChange
+                textState, viewModel::onSearchTextChange
             )
         },
     ) { padding ->
-        Box(modifier = Modifier.padding(padding)) {
+        Box(
+            modifier = Modifier
+                .padding(padding)
+        ) {
             Column {
-                ObjectLazyListScreen(
-                    modifier = Modifier,
-                    objectList = screenState.objectList,
-                    navigateToDetailsPage = navigateToDetailsPage,
-                )
-                ProgressView(
-                    screenState.isLoading
-                )
+                screenState.objectList?.let {
+                    ObjectLazyListScreen(
+                        modifier = Modifier,
+                        objectList = it,
+                        navigateToDetailsPage = navigateToDetailsPage,
+                    )
+                }
+
                 ErrorView(
-                    errorMessage = screenState.errorMessage ?: "",
-                    ocClick = { viewModel.onRetry() },
-                    visible = screenState.errorMessage != null,
+                    errorMessage = screenState.errorMessage ?: stringResource(
+                        id = R.string.no_objects_found
+                    ),
+                    visible = (screenState.errorMessage != null) || screenState.objectList.isNullOrEmpty() && !screenState.isLoading,
                 )
+
+                ProgressView(
+                    visible = screenState.isLoading
+                )
+
             }
         }
     }

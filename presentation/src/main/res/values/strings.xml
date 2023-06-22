@@ -9,8 +9,8 @@
     <string name="no_objects_found">There is no item. Please search key word</string>
     <string name="department_name">Department Name:</string>
     <string name="object_name">Name:</string>
-    <string name="object_country">Country:</string>
-    <string name="object_location">Location:</string>
+    <string name="object_country">Origin Country:</string>
+    <string name="accession_year">Accession Year:</string>
     <string name="more_Image">More Image:</string>
 </resources>
 

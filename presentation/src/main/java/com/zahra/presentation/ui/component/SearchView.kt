@@ -27,9 +27,8 @@ import com.zahra.presentation.R
 @Composable
 fun SearchView(
     state: MutableState<TextFieldValue>,
-    onTextChane: (String) -> Unit,
-
-    ) {
+    onTextChange: (String) -> Unit,
+) {
     TopAppBar(
         modifier = Modifier
             .fillMaxWidth()
@@ -38,8 +37,8 @@ fun SearchView(
         TextField(
             value = state.value,
             onValueChange = { value ->
-                state.value = value //Todo check state.value
-                onTextChane(value.text)
+                state.value = value
+                onTextChange(value.text)
             },
 
             modifier = Modifier
@@ -59,8 +58,8 @@ fun SearchView(
             trailingIcon = {
                 if (state.value != TextFieldValue("")) {
                     IconButton(onClick = {
-                        state.value =
-                            TextFieldValue("") // Remove text from TextField when you press the 'X' icon
+                        state.value = TextFieldValue("")
+                        onTextChange("")
                     }) {
                         Icon(
                             Icons.Default.Close,
@@ -79,7 +78,7 @@ fun SearchView(
                 cursorColor = Color.White,
                 leadingIconColor = Color.White,
                 trailingIconColor = Color.White,
-                backgroundColor = colorResource(id = R.color.gray),
+                backgroundColor = colorResource(id = R.color.card_background),
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
                 disabledIndicatorColor = Color.Transparent

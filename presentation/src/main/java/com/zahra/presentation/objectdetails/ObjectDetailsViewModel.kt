@@ -1,5 +1,6 @@
 package com.zahra.presentation.objectdetails
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.zahra.domain.data.common.Either
@@ -42,6 +43,8 @@ class ObjectDetailsViewModel @Inject constructor(
                 }
 
                 is Either.Error -> {
+                    Log.i("ErrorLog 2",result.error)
+
                     _state.value = _state.value.copy(
                         isLoading = false,
                         model = null,

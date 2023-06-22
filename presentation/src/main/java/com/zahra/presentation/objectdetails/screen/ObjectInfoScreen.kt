@@ -1,6 +1,7 @@
 package com.zahra.presentation.objectdetails.screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,11 +13,14 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
@@ -41,22 +45,22 @@ fun ObjectInfoScreen(
         .background(color = Color.White)
 ) {
     val modifier = Modifier.padding(
-        start = 24.dp,
+        start = 16.dp,
         top = 8.dp,
     )
     Row(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(4.dp)
+        horizontalArrangement = Arrangement.spacedBy(2.dp)
     ) {
         Text(
             text = stringResource(id = R.string.department_name),
             color = Color.LightGray,
-            fontSize = 16.sp,
+            fontSize = 14.sp,
         )
         Text(
             text = model?.department ?: "",
             color = Color.Black,
-            fontSize = 16.sp,
+            fontSize = 14.sp,
         )
     }
     Row(
@@ -66,12 +70,12 @@ fun ObjectInfoScreen(
         Text(
             text = stringResource(id = R.string.object_country),
             color = Color.LightGray,
-            fontSize = 16.sp,
+            fontSize = 14.sp,
         )
         Text(
             text = model?.country ?: "",
             color = Color.Black,
-            fontSize = 16.sp,
+            fontSize = 14.sp,
         )
     }
     Row(
@@ -79,27 +83,33 @@ fun ObjectInfoScreen(
         horizontalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         Text(
-            text = stringResource(id = R.string.object_location),
+            text = stringResource(id = R.string.accession_year),
             color = Color.LightGray,
-            fontSize = 16.sp,
+            fontSize = 14.sp,
         )
         Text(
-            text = model?.repository ?: "",
+            text = model?.accessionYear ?: "",
             color = Color.Black,
-            fontSize = 16.sp,
+            fontSize = 14.sp,
         )
     }
     Spacer(modifier = Modifier.height(8.dp))
+
     model?.additionalImages?.let { additionalImages ->
         if (additionalImages.isNotEmpty()) {
             Text(
                 modifier = modifier,
                 text = stringResource(id = R.string.more_Image),
-                color = Color.DarkGray,
-                fontSize = 16.sp,
+                color = colorResource(
+                    id = R.color.card_background
+                ),
+                fontSize = 14.sp,
             )
             Spacer(modifier = Modifier.height(8.dp))
-            LazyRow {
+            LazyRow(
+                modifier = modifier,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
                 items(additionalImages) { item ->
                     AsyncImage(
                         contentDescription = "additional image",
@@ -111,13 +121,14 @@ fun ObjectInfoScreen(
                             .crossfade(true)
                             .build(),
                         modifier = Modifier
-                            .background(
-                                shape = RoundedCornerShape(8.dp),
+                            .clip(RectangleShape)
+                            .border(
+                                1.dp,
                                 color = colorResource(
-                                    id =R.color.card_background
+                                    id = R.color.card_background
                                 ),
+                                RectangleShape
                             )
-                            .padding(8.dp)
                             .width(100.dp)
                             .height(100.dp)
 
@@ -127,6 +138,7 @@ fun ObjectInfoScreen(
         }
     }
 
+    Spacer(modifier = Modifier.height(100.dp))
 }
 
 
