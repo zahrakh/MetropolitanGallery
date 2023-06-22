@@ -7,8 +7,9 @@ import com.zahra.data.remotedata.dto.ObjectsDto
 import com.zahra.domain.data.common.Either
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
-class NetworkDataSourceImp constructor(
+class NetworkDataSourceImp @Inject constructor(
     private val service: ApiService,
     private val stringProvider: StringProvider
 ) : NetworkDataSource {
