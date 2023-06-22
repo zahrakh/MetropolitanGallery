@@ -20,7 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zahra.presentation.ui.animation.FadeInScreen
-import com.zahra.presentation.ui.theme.LightSecondary
+import com.zahra.presentation.ui.theme.LightPrimary
 
 @Composable
 fun ErrorView(
@@ -46,7 +46,7 @@ fun ErrorView(
                     modifier = Modifier
                         .background(
                             shape = RoundedCornerShape(8.dp),
-                            color = LightSecondary
+                            color = LightPrimary
                         )
                         .padding(16.dp)
                 )

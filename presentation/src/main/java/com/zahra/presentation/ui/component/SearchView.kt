@@ -39,7 +39,7 @@ fun SearchView(
             placeholder = {
                 Text(
                     text = stringResource(id = R.string.search_hint_text),
-                    color = Color.LightGray
+                    color = Color.Gray
                 )
             },
             value = state.value,
