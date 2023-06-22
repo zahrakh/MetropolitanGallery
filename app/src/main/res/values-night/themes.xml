@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.MetropolitanGallery" parent="android:Theme.Material.Light.NoActionBar">
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:statusBarColor">#092245</item>
         <!-- Customize your theme here. -->
     </style>
 
